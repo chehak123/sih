@@ -4,71 +4,70 @@ import 'package:ncrb/screens/lodgeComplaint.dart';
 import 'package:ncrb/screens/accessAndupdate.dart';
 import 'package:ncrb/screens/missingPerson.dart';
 import 'package:ncrb/screens/stolenRecovered.dart';
-class Citizen extends StatelessWidget{
 
-@override
-Widget build(BuildContext context)
-{
-  return (Scaffold(
-    appBar: AppBar(
-      title: Text(
-        "Welcome Citizens"
+class Citizen extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return (Scaffold(
+      appBar: AppBar(
+        title: Text("Welcome Citizens"),
       ),
-    ),
-    body: Center(
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        mainAxisSize: MainAxisSize.max,
-        crossAxisAlignment: CrossAxisAlignment.stretch,
-        children: <Widget>[
-           RaisedButton(
+      body: Center(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          mainAxisSize: MainAxisSize.max,
+          crossAxisAlignment: CrossAxisAlignment.stretch,
+          children: <Widget>[
+            RaisedButton(
               child: Text("Access and Update"),
               onPressed: () {
-                  Navigator.push(context,MaterialPageRoute(builder: (context)=>accessAndupdate()));
+                Navigator.push(context,
+                    MaterialPageRoute(builder: (context) => accessAndupdate()));
               },
             ),
-           RaisedButton(
+            RaisedButton(
               child: Text("Lodge a Complaint"),
-              onPressed: () { 
-                Navigator.push(context,MaterialPageRoute(builder: (context)=>lodgeComplaint()));
+              onPressed: () {
+                Navigator.push(context,
+                    MaterialPageRoute(builder: (context) => lodgeComplaint()));
               },
             ),
-           RaisedButton(
+            RaisedButton(
               child: Text("Obtain a copy of FIR"),
               onPressed: () {
-                Navigator.push(context,MaterialPageRoute(builder: (context)=>CopyOfFir()));
+                Navigator.push(context,
+                    MaterialPageRoute(builder: (context) => CopyOfFir()));
               },
             ),
-           RaisedButton(
+            RaisedButton(
               child: Text("Missing Person"),
-              onPressed: () { 
-                Navigator.push(context,MaterialPageRoute(builder: (context)=>missingPerson()));
+              onPressed: () {
+                Navigator.push(context,
+                    MaterialPageRoute(builder: (context) => missingPerson()));
               },
             ),
-           RaisedButton(
+            RaisedButton(
               child: Text("Stolen/Recovered"),
               onPressed: () {
-                Navigator.push(context,MaterialPageRoute(builder: (context)=>stolenRecovered()));
-
+                Navigator.push(context,
+                    MaterialPageRoute(builder: (context) => stolenRecovered()));
               },
             ),
-           RaisedButton(
+            RaisedButton(
               child: Text("Police"),
-              onPressed: () { },
+              onPressed: () {},
             ),
-             RaisedButton(
+            RaisedButton(
               child: Text("Citizens"),
-              onPressed: () {
-
-              },
+              onPressed: () {},
             ),
-           RaisedButton(
+            RaisedButton(
               child: Text("Police"),
-              onPressed: () { },
-            ),  
-        ],
+              onPressed: () {},
+            ),
+          ],
+        ),
       ),
-    ),
-  ));
-}
+    ));
+  }
 }

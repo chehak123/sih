@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "3205313701",
+    "firebase_url": "https://ncrb-dc282.firebaseio.com",
+    "project_id": "ncrb-dc282",
+    "storage_bucket": "ncrb-dc282.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:3205313701:android:b392def94ab7256cab894c",
+        "android_client_info": {
+          "package_name": "com.example.ncrb"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "3205313701-a2fn3bqcqjtip7g4mjnqs0tvg7n7f9b9.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCdYVv5yTzClAqbc3tx80d7FIEEFQYHi_A"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "3205313701-a2fn3bqcqjtip7g4mjnqs0tvg7n7f9b9.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

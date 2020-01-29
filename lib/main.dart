@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:ncrb/screens/Welcome.dart';
+
 void main() => runApp(MyApp());
 
 class MyApp extends StatelessWidget {
@@ -10,10 +11,9 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       title: 'Flutter Demo',
       theme: ThemeData(
-      primarySwatch: Colors.blue,
+        primarySwatch: Colors.blue,
       ),
       home: Welcome(),
     );
   }
 }
-
