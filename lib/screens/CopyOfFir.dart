@@ -15,7 +15,12 @@ String fir;
     fontSize: 50,
   );
   var database=FirebaseDatabase.instance.reference().child("Users");
-
+  @override
+  void initState()
+  {
+    super.initState();
+    getUsers().then(update);
+  }
 _CopyOfFirState(this.fir);
   Map<dynamic,dynamic> record={
       'name':"Name",
@@ -44,7 +49,7 @@ _CopyOfFirState(this.fir);
               textAlign: TextAlign.center,
               textScaleFactor: 1.2,
             )),
-            Expanded(child: TextFormField()),
+            Expanded(child: Text(fir))
           ],
         )),
             Padding(
@@ -58,7 +63,7 @@ _CopyOfFirState(this.fir);
               textAlign: TextAlign.center,
               textScaleFactor: 1.2,
             )),
-            Expanded(child: TextFormField()),
+            Expanded(child: Text(record['date'])),
           ],
         )),
             Padding(

@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:ncrb/screens/CopyOfFir.dart';
 import 'package:ncrb/screens/lodgeComplaint.dart';
 import 'package:ncrb/screens/accessAndupdate.dart';
-import 'package:ncrb/screens/missingPerson.dart';
 import 'package:ncrb/screens/stolenRecovered.dart';
 
 class Citizen extends StatelessWidget {
@@ -36,14 +34,14 @@ class Citizen extends StatelessWidget {
               child: Text("Obtain a copy of FIR"),
               onPressed: () {
                 Navigator.push(context,
-                    MaterialPageRoute(builder: (context) => CopyOfFir()));
+                    MaterialPageRoute(builder: (context) => accessAndupdate(false)));
               },
             ),
             RaisedButton(
               child: Text("Missing Person"),
               onPressed: () {
                 Navigator.push(context,
-                  MaterialPageRoute(builder: (context) => accessAndupdate()));
+                  MaterialPageRoute(builder: (context) => accessAndupdate(true)));
               },
             ),
             RaisedButton(
