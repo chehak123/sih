@@ -17,13 +17,6 @@ class Citizen extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: <Widget>[
             RaisedButton(
-              child: Text("Access and Update"),
-              onPressed: () {
-                // Navigator.push(context,
-                //     MaterialPageRoute(builder: (context) => accessAndupdate()));
-              },
-            ),
-            RaisedButton(
               child: Text("Lodge a Complaint"),
               onPressed: () {
                 Navigator.push(context,
@@ -38,7 +31,28 @@ class Citizen extends StatelessWidget {
               },
             ),
             RaisedButton(
-              child: Text("Missing Person"),
+              child: Text("Status of Complaint/FIR"),
+              onPressed: () {
+                Navigator.push(context,
+                    MaterialPageRoute(builder: (context) => accessAndupdate(false)));
+              },
+            ),
+            RaisedButton(
+              child: Text("Arrested Persons and their Criminal Activities"),
+              onPressed: () {
+                Navigator.push(context,
+                    MaterialPageRoute(builder: (context) => accessAndupdate(false)));
+              },
+            ),
+            RaisedButton(
+              child: Text("Wanted Criminals and their Criminal Activities"),
+              onPressed: () {
+                Navigator.push(context,
+                    MaterialPageRoute(builder: (context) => accessAndupdate(false)));
+              },
+            ),
+            RaisedButton(
+              child: Text("Missing / Kidnaped Persons"),
               onPressed: () {
                 Navigator.push(context,
                   MaterialPageRoute(builder: (context) => accessAndupdate(true)));
@@ -52,15 +66,11 @@ class Citizen extends StatelessWidget {
               },
             ),
             RaisedButton(
-              child: Text("Police"),
+              child: Text("VERIFICATION REQUEST"),
               onPressed: () {},
             ),
             RaisedButton(
-              child: Text("Citizens"),
-              onPressed: () {},
-            ),
-            RaisedButton(
-              child: Text("Police"),
+              child: Text("REQUEST FOR ISSUE / RENEWAL"),
               onPressed: () {},
             ),
           ],
