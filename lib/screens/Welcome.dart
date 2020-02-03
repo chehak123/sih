@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:ncrb/screens/Citizen.dart';
 import 'package:ncrb/screens/Police.dart';
 
+import 'Police.dart';
+
 class Welcome extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
@@ -25,6 +27,8 @@ class Welcome extends StatelessWidget {
             RaisedButton(
               child: Text("Police"),
               onPressed: () {
+                Navigator.push(context,
+                    MaterialPageRoute(builder: (context) => Police2()));
               },
             ),
           ],
