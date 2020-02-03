@@ -1,7 +1,12 @@
 import 'package:flutter/material.dart';
+<<<<<<< HEAD
 import 'package:ncrb/screens/missingPerson.dart';
+=======
+import 'package:firebase_database/firebase_database.dart';
+>>>>>>> 793225359cd91cf3de0f3fd3d4676382719f4c22
 
 class accessAndupdate extends StatelessWidget {
+  final database = FirebaseDatabase.instance.reference().child("users");
   TextEditingController fir = new TextEditingController();
   @override
   Widget build(BuildContext context) {
@@ -26,7 +31,12 @@ class accessAndupdate extends StatelessWidget {
             RaisedButton(
               child: Text("Submit"),
               onPressed: () {
+<<<<<<< HEAD
                 Navigator.push(context, MaterialPageRoute(builder: (context)=>missingPerson(fir.text)));
+=======
+                fir.text = "Hello";
+                database.child("Hello").update({'presence': 'true'});
+>>>>>>> 793225359cd91cf3de0f3fd3d4676382719f4c22
               },
             ),
             Text(fir.text)
