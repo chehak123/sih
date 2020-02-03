@@ -1,8 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:ncrb/screens/CopyOfFir.dart';
 import 'package:ncrb/screens/missingPerson.dart';
 import 'package:firebase_database/firebase_database.dart';
 
 class accessAndupdate extends StatelessWidget {
+  bool x;
+  accessAndupdate(this.x);
   final database = FirebaseDatabase.instance.reference().child("users");
   TextEditingController fir = new TextEditingController();
   @override
@@ -28,7 +31,8 @@ class accessAndupdate extends StatelessWidget {
             RaisedButton(
               child: Text("Submit"),
               onPressed: () {
-                Navigator.push(context, MaterialPageRoute(builder: (context)=>missingPerson(fir.text)));
+                if(x) Navigator.push(context, MaterialPageRoute(builder: (context)=>missingPerson(fir.text)));
+                else Navigator.push(context, MaterialPageRoute(builder: (context)=>CopyOfFir(fir.text)))
               },
             ),
             Text(fir.text)
