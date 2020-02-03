@@ -1,6 +1,33 @@
-import 'package:flutter/material.dart';
+import 'dart:async';
 
-class missingPerson extends StatelessWidget{
+import 'package:flutter/material.dart';
+import 'package:firebase_database/firebase_database.dart';
+class missingPerson extends StatefulWidget{
+  String fir;
+  missingPerson(this.fir);
+  @override
+  _missingPersonState createState() => _missingPersonState(fir);
+}
+
+class _missingPersonState extends State<missingPerson> {
+  String fir;
+  TextStyle style=TextStyle(
+    fontSize: 50,
+  );
+  Map<dynamic,dynamic> record={
+      'name':"Name",
+      'date':"Date",
+      'age' :'Age',
+      'height':'height'
+    };
+  _missingPersonState(this.fir);
+  var database=FirebaseDatabase.instance.reference().child("Users");
+  @override
+  void initState()
+  {
+    super.initState();
+    getUsers().then(update);
+  }
   @override
   Widget build(BuildContext context)
   {
@@ -17,12 +44,12 @@ class missingPerson extends StatelessWidget{
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: <Widget>[
                   Expanded(
-                    child: Text("Missing Date",
+                    child: Text("Date", style: style,
                     textAlign: TextAlign.center,
                     textScaleFactor: 1.2,)
                   ),
                   Expanded(
-                    child: TextFormField(
+                    child: Text(record['date'], style: style,
                     )
                   ),
                 ],
@@ -34,12 +61,12 @@ class missingPerson extends StatelessWidget{
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: <Widget>[
                   Expanded(
-                    child: Text("To",
+                    child: Text("Name",style: style,
                     textAlign: TextAlign.center,
                     textScaleFactor: 1.2,)
                   ),
                   Expanded(
-                    child: TextFormField(
+                    child: Text(record['name'],style: style,
                     )
                   ),
                 ],
@@ -51,12 +78,12 @@ class missingPerson extends StatelessWidget{
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: <Widget>[
                   Expanded(
-                    child: Text("Name",
+                    child: Text("Age",style: style,
                     textAlign: TextAlign.center,
                     textScaleFactor: 1.2,)
                   ),
                   Expanded(
-                    child: TextFormField(
+                    child: Text(record['age'],style: style,
                     )
                   ),
                 ],
@@ -68,129 +95,41 @@ class missingPerson extends StatelessWidget{
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: <Widget>[
                   Expanded(
-                    child: Text("Father's Name",
+                    child: Text("Height",style: style,
                     textAlign: TextAlign.center,
                     textScaleFactor: 1.2,)
                   ),
                   Expanded(
-                    child: TextFormField(
-                    )
+                    child: Text(record['height'],style: style,               )
                   ),
                 ],
               )
               ),
-            Padding(
-              padding: EdgeInsets.only(left: 10),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                children: <Widget>[
-                  Expanded(
-                    child: Text("Age",
-                    textAlign: TextAlign.center,
-                    textScaleFactor: 1.2,)
-                  ),
-                  Expanded(
-                    child: TextFormField(
-                    )
-                  ),
-                ],
-              )
-              ),
-            Padding(
-              padding: EdgeInsets.only(left: 10),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                children: <Widget>[
-                  Expanded(
-                    child: Text("Height",
-                    textAlign: TextAlign.center,
-                    textScaleFactor: 1.2,)
-                  ),
-                  Expanded(
-                    child: TextFormField(
-                    )
-                  ),
-                ],
-              )
-              ),
-            Padding(
-              padding: EdgeInsets.only(left: 10),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                children: <Widget>[
-                  Expanded(
-                    child: Text("Religion",
-                    textAlign: TextAlign.center,
-                    textScaleFactor: 1.2,)
-                  ),
-                  Expanded(
-                    child: TextFormField(
-                    )
-                  ),
-                ],
-              )
-              ),
-            Padding(
-              padding: EdgeInsets.only(left: 10),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                children: <Widget>[
-                  Expanded(
-                    child: Text("Sex",
-                    textAlign: TextAlign.center,
-                    textScaleFactor: 1.2,)
-                  ),
-                  Expanded(
-                    child: TextFormField(
-                    )
-                  ),
-                ],
-              )
-              ),
-            Padding(
-              padding: EdgeInsets.only(left: 10),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                children: <Widget>[
-                  Expanded(
-                    child: Text("State",
-                    textAlign: TextAlign.center,
-                    textScaleFactor: 1.2,)
-                  ),
-                  Expanded(
-                    child: TextFormField(
-                    )
-                  ),
-                ],
-              )
-              ),
-            RaisedButton(
-              child: Text("Submit"),
-              onPressed: () {},
-            )
             ],
           ),
       ),
     ));
   }
-  Widget fields(String x)
-  {
-    return  Padding(
-              padding: EdgeInsets.only(left: 10),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                children: <Widget>[
-                  Expanded(
-                    child: Text(x,
-                    textAlign: TextAlign.center,
-                    textScaleFactor: 1.2,)
-                  ),
-                  Expanded(
-                    child: TextFormField(
-                    )
-                  ),
-                ],
-              )
-              );
+
+
+  Future<Map<dynamic,dynamic>> getUsers() async {
+    Completer<Map<dynamic,dynamic>> l = new Completer<Map<dynamic,dynamic>>();
+    Map<dynamic,dynamic> x = {};
+    database.child(fir)
+        .once()
+        .then((DataSnapshot snapshot) {
+      final value = snapshot.value as Map;
+      x['name']=value['name'];
+      x['date']=value['date'];
+      x['age']=value['age'];
+      x['height']=value['height'];
+      l.complete(x);
+      });
+    return l.future;
+  }
+  update(Map<dynamic,dynamic> value) {
+    setState(() {
+      record = value;
+    });
   }
 }

@@ -1,9 +1,7 @@
-import 'package:firebase_database/firebase_database.dart';
 import 'package:flutter/material.dart';
 import 'package:ncrb/screens/Citizen.dart';
 
 class Welcome extends StatelessWidget {
-    final database = FirebaseDatabase.instance.reference().child("users");
   @override
   Widget build(BuildContext context) {
     return (Scaffold(
@@ -26,10 +24,6 @@ class Welcome extends StatelessWidget {
             RaisedButton(
               child: Text("Police"),
               onPressed: () {
-               database.child("1").set({
-          'email': "agg",
-          'presence': false,
-        });
               },
             ),
           ],

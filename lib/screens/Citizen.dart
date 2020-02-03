@@ -21,8 +21,8 @@ class Citizen extends StatelessWidget {
             RaisedButton(
               child: Text("Access and Update"),
               onPressed: () {
-                Navigator.push(context,
-                    MaterialPageRoute(builder: (context) => accessAndupdate()));
+                // Navigator.push(context,
+                //     MaterialPageRoute(builder: (context) => accessAndupdate()));
               },
             ),
             RaisedButton(
@@ -43,7 +43,7 @@ class Citizen extends StatelessWidget {
               child: Text("Missing Person"),
               onPressed: () {
                 Navigator.push(context,
-                    MaterialPageRoute(builder: (context) => missingPerson()));
+                  MaterialPageRoute(builder: (context) => accessAndupdate()));
               },
             ),
             RaisedButton(

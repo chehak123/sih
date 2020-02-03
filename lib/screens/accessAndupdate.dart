@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:ncrb/screens/missingPerson.dart';
 
 class accessAndupdate extends StatelessWidget {
   TextEditingController fir = new TextEditingController();
@@ -25,7 +26,7 @@ class accessAndupdate extends StatelessWidget {
             RaisedButton(
               child: Text("Submit"),
               onPressed: () {
-                fir.text = "Hello";
+                Navigator.push(context, MaterialPageRoute(builder: (context)=>missingPerson(fir.text)));
               },
             ),
             Text(fir.text)
