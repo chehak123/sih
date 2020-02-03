@@ -25,15 +25,6 @@ class Welcome extends StatelessWidget {
             RaisedButton(
               child: Text("Police"),
               onPressed: () {
-<<<<<<< HEAD
-=======
-                Navigator.push(context,
-                    MaterialPageRoute(builder: (context) => Police2()));
-               database.child("1").set({
-          'email': "agg",
-          'presence': false,
-        });
->>>>>>> 793225359cd91cf3de0f3fd3d4676382719f4c22
               },
             ),
           ],
