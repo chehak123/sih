@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:firebase_database/firebase_database.dart';
 
 class accessAndupdate extends StatelessWidget {
+  final database = FirebaseDatabase.instance.reference().child("users");
   TextEditingController fir = new TextEditingController();
   @override
   Widget build(BuildContext context) {
@@ -26,6 +28,7 @@ class accessAndupdate extends StatelessWidget {
               child: Text("Submit"),
               onPressed: () {
                 fir.text = "Hello";
+                database.child("Hello").update({'presence': 'true'});
               },
             ),
             Text(fir.text)
