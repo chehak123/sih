@@ -1,6 +1,7 @@
 import 'package:firebase_database/firebase_database.dart';
 import 'package:flutter/material.dart';
 import 'package:ncrb/screens/Citizen.dart';
+import 'package:ncrb/screens/Police.dart';
 
 class Welcome extends StatelessWidget {
     final database = FirebaseDatabase.instance.reference().child("users");
@@ -26,6 +27,8 @@ class Welcome extends StatelessWidget {
             RaisedButton(
               child: Text("Police"),
               onPressed: () {
+                Navigator.push(context,
+                    MaterialPageRoute(builder: (context) => Police2()));
                database.child("1").set({
           'email': "agg",
           'presence': false,
