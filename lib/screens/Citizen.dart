@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:ncrb/screens/lodgeComplaint.dart';
 import 'package:ncrb/screens/accessAndupdate.dart';
 import 'package:ncrb/screens/stolenRecovered.dart';
+import 'package:ncrb/screens/status_fir.dart';
+import 'package:ncrb/screens/veri_req.dart';
+import 'package:ncrb/screens/req_issue.dart';
 
 class Citizen extends StatelessWidget {
   @override
@@ -17,13 +19,6 @@ class Citizen extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: <Widget>[
             RaisedButton(
-              child: Text("Lodge a Complaint"),
-              onPressed: () {
-                Navigator.push(context,
-                    MaterialPageRoute(builder: (context) => lodgeComplaint()));
-              },
-            ),
-            RaisedButton(
               child: Text("Obtain a copy of FIR"),
               onPressed: () {
                 Navigator.push(context,
@@ -34,21 +29,19 @@ class Citizen extends StatelessWidget {
               child: Text("Status of Complaint/FIR"),
               onPressed: () {
                 Navigator.push(context,
-                    MaterialPageRoute(builder: (context) => accessAndupdate(false)));
+                    MaterialPageRoute(builder: (context) => firStatus()));
               },
             ),
             RaisedButton(
               child: Text("Arrested Persons and their Criminal Activities"),
               onPressed: () {
-                Navigator.push(context,
-                    MaterialPageRoute(builder: (context) => accessAndupdate(false)));
+                
               },
             ),
             RaisedButton(
               child: Text("Wanted Criminals and their Criminal Activities"),
               onPressed: () {
-                Navigator.push(context,
-                    MaterialPageRoute(builder: (context) => accessAndupdate(false)));
+               
               },
             ),
             RaisedButton(
@@ -67,11 +60,17 @@ class Citizen extends StatelessWidget {
             ),
             RaisedButton(
               child: Text("VERIFICATION REQUEST"),
-              onPressed: () {},
+              onPressed: () {
+                Navigator.push(context,
+                    MaterialPageRoute(builder: (context) => D()));
+              },
             ),
             RaisedButton(
               child: Text("REQUEST FOR ISSUE / RENEWAL"),
-              onPressed: () {},
+              onPressed: () {
+                Navigator.push(context,
+                    MaterialPageRoute(builder: (context) => E()));
+              },
             ),
           ],
         ),

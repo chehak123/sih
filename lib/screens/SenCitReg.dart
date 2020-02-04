@@ -9,7 +9,7 @@ class scr extends StatelessWidget{
         title: Text("Senior Citizen Registration"),
       ),
       body: Container(
-          child: Column(
+          child: ListView(
             children: <Widget>[
             Padding(
               padding: EdgeInsets.only(left: 10),

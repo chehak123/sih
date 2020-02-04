@@ -10,7 +10,9 @@ class accessAndupdate extends StatelessWidget {
   Widget build(BuildContext context) {
     return (Scaffold(
       appBar: AppBar(
-        title: Text("Access and Update"),
+        title:x==true 
+        ? Text("Fetch Missing Person details")
+        : Text("Fetch FIR details")
       ),
       body: Center(
         child: Column(

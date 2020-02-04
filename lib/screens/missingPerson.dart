@@ -11,13 +11,19 @@ class missingPerson extends StatefulWidget{
 class _missingPersonState extends State<missingPerson> {
   String fir;
   TextStyle style=TextStyle(
-    fontSize: 50,
+    fontSize: 30,
   );
+  Widget image(){
+    AssetImage assetImage=AssetImage('assets/missing.jpg');
+    Image image=Image(image: assetImage);
+    return image;
+  }
   Map<dynamic,dynamic> record={
       'name':"Name",
       'date':"Date",
       'age' :'Age',
-      'height':'height'
+      'height':'height',
+      'gender':"Gender"
     };
   _missingPersonState(this.fir);
   var database=FirebaseDatabase.instance.reference().child("Users");
@@ -35,7 +41,7 @@ class _missingPersonState extends State<missingPerson> {
         title: Text("Missing Persons"),
       ),
       body: Container(
-          child: Column(
+          child: ListView(
             children: <Widget>[
             Padding(
               padding: EdgeInsets.only(left: 10),
@@ -104,6 +110,24 @@ class _missingPersonState extends State<missingPerson> {
                 ],
               )
               ),
+              Padding(
+              padding: EdgeInsets.only(left: 10),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                children: <Widget>[
+                  Expanded(
+                    child: Text("Gender", style: style,
+                    textAlign: TextAlign.center,
+                    textScaleFactor: 1.2,)
+                  ),
+                  Expanded(
+                    child: Text(record['gender'], style: style,
+                    )
+                  ),
+                ],
+              )
+              ),
+              image(),
             ],
           ),
       ),
@@ -122,6 +146,7 @@ class _missingPersonState extends State<missingPerson> {
       x['date']=value['date'];
       x['age']=value['age'];
       x['height']=value['height'];
+      x['gender']=value['gender'];
       l.complete(x);
       });
     return l.future;

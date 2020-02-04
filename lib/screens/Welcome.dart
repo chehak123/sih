@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:ncrb/screens/Citizen.dart';
-import 'package:ncrb/screens/Police.dart';
-
-import 'Police.dart';
+import 'package:ncrb/screens/plogin.dart';
 
 class Welcome extends StatelessWidget {
   @override
@@ -28,7 +26,7 @@ class Welcome extends StatelessWidget {
               child: Text("Police"),
               onPressed: () {
                 Navigator.push(context,
-                    MaterialPageRoute(builder: (context) => Police2()));
+                    MaterialPageRoute(builder: (context) => SignIn()));
               },
             ),
           ],
